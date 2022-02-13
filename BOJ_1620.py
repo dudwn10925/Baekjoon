@@ -1,14 +1,28 @@
-n, m = map(int, input().split())
-pokemon = {}
-for i in range(n):
-    monster = input()
-    pokemon[f'{i+1}'] = monster
-    pokemon[monster] = f"{i+1}"
+import sys
+input = sys.stdin.readline
+n, m = map(int, input().strip().split())
 
-result = []
-for i in range(m):
-    monster = input()
-    result.append(pokemon[monster])
+pokemon = {}
+lst = []
+for i in range(n+m):
+    name = input().strip()
+    if i < n:
+        pokemon[name] = str(i+1)
+        pokemon[str(i+1)] = name
+    else:
+        lst.append(pokemon[name])
+for l in lst:
+    print(l)
     
-for r in result:
-    print(r)
+# for i in range(n):
+#     name = input().strip()
+#     pokemon[name] = str(i+1)
+#     pokemon[str(i+1)] = name
+
+# lst = []
+# for _ in range(m):
+#     monster = input().strip()
+#     lst.append(pokemon[monster])
+
+# for l in lst:
+#     print(l)
